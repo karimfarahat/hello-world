@@ -48,7 +48,7 @@ jobs:
       - checkout
       - run:
           name: "Print My Name"
-          command: "echo ${MY_NAME}"
+          command: echo $MY_NAME
 
 
 
