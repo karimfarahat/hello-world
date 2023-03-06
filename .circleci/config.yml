@@ -31,7 +31,7 @@ jobs:
       - run: mkdir -p out
       - run:
           name: "Make output.txt"
-          command: echo "text to output here" > output.txt
+          command: echo "text to output here" > out/output.txt
       - persist_to_workspace:
           root: out
           paths:
@@ -46,7 +46,7 @@ jobs:
           name: "print output.txt"
           command: cat output.txt
       - attach_workspace:
-          at: out/output.txt
+          at: out
 
 
   # print_hello:
