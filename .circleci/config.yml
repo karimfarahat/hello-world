@@ -46,6 +46,15 @@ jobs:
           at: ~/
       - run: cat ~/output.txt
 
+  test_on_fail:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: return 1
+      - run:
+          command: echo "I Have Failed YOU :("
+          when: on_fail
+
 
   # print_hello:
     # docker:
@@ -87,6 +96,7 @@ workflows:
       - print_output_file:
           requires:
           - save_hello_world_output
+      - test_on_fail
       # - print_myname
       # - print_hello
       # - print_world:
